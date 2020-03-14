@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import GenreCard from '../../components/GenreCard';
+import GenreList from '../../components/GenreList';
 import { Stack, Input, Flex, IconButton } from "@chakra-ui/core";
 
 function Home() {
@@ -13,11 +13,13 @@ function Home() {
             w="100vw"
             spacing={8} 
         >
-        <Flex>
-     <Input placeholder="Search for a movie" />
+        <Stack>
+            <Flex justify="center" pt="20px">
+     <Input placeholder="Search for a movie" w="50vw"/>
      <IconButton aria-label="Search database" icon="search" />
-      < GenreCard />
-      </Flex>
+     </Flex>
+      < GenreList />
+      </Stack>
         </Stack>
     )
 }
