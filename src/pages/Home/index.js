@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import GenreList from '../../components/GenreList';
+import SearchBar from '../../components/SearchBar';
 import { Stack, Input, Flex, IconButton } from "@chakra-ui/core";
 
 function Home() {
@@ -14,10 +15,7 @@ function Home() {
             spacing={8} 
         >
         <Stack>
-            <Flex justify="center" pt="20px">
-     <Input placeholder="Search for a movie" w="50vw"/>
-     <IconButton aria-label="Search database" icon="search" />
-     </Flex>
+      < SearchBar />      
       < GenreList />
       </Stack>
         </Stack>
