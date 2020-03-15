@@ -7,7 +7,7 @@ function MovieCard(props) {
  
   return (
     <Box p="10px" maxW="sm" borderWidth="1px" borderColor="footfeet.100" rounded="lg" overflow="hidden">
-      <Image src={`https://image.tmdb.org/t/p/w200${props.moviesByGenre.poster_path}`} alt="movie_poster" 
+      <Image src={`https://image.tmdb.org/t/p/w200${props.movies.poster_path}`} alt="movie_poster" 
       objectFit="cover"
       rounded="md"
       />
@@ -15,7 +15,7 @@ function MovieCard(props) {
       <Box p="6">
         <Box d="flex" alignItems="baseline" >
           <Badge rounded="full" px="2" variantColor="teal">
-            Rating:{props.moviesByGenre.vote_average}
+            Rating:{props.movies.vote_average}
           </Badge>
           
         </Box>
@@ -28,17 +28,17 @@ function MovieCard(props) {
           lineHeight="tight"
           isTruncated
         >
-          {props.moviesByGenre.title}
+          {props.movies.title}
         </Box>
 
         <Box>
-          {props.moviesByGenre.release_date}
+          {props.movies.release_date}
         </Box>
 
         <Box d="flex" mt="2" alignItems="center">
           
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {props.moviesByGenre.vote_count} reviews
+            {props.movies.vote_count} reviews
           </Box>
         </Box>
       </Box>

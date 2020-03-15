@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { Stack, Box, Image, Badge } from "@chakra-ui/core";
+import SimilarMovies from '../../components/SimilarMovies';
 import axios from 'axios';
 
 
 class Movie extends Component {
 state={
-    movieDetail: []
+    movieDetail: [],
+    similarMovies: []
 }
 
 componentDidMount(){
     this.getDetailMovie()
+    this.getSimilarMovies()
     }
 
 async getDetailMovie(){
@@ -17,6 +20,12 @@ async getDetailMovie(){
      const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
      this.setState({movieDetail:{...data}})
 }    
+
+async getSimilarMovies(){
+  const { id } = this.props.match.params
+  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=35abd380b84407de20ef877d5353f792&language=en-US&page=1`)
+     this.setState({similarMovies: data.results})
+}
 
     render(){
 return(
@@ -65,6 +74,7 @@ return(
         </Box>
       </Box>
     </Box>
+    < SimilarMovies similarMovies={this.state.similarMovies}/>
     </Stack>
 )
     }
