@@ -15,12 +15,9 @@ this.getMoviesByGenre()
 }
 
 async getMoviesByGenre(){
-    const { id } = this.props.match.params
-    console.log(id)
-    const {data} = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=35abd380b84407de20ef877d5353f792&with_genres=10752`)
-    console.log(data)
+    const { genre_id } = this.props.match.params
+    const {data} = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=35abd380b84407de20ef877d5353f792&with_genres=${genre_id}`)
     this.setState({moviesByGenre: data.results})
-    console.log(this.state.moviesByGenre)
 }
     render(){
 return(

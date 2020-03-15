@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, Image, Badge } from "@chakra-ui/core";
+import { Box, Image, Badge, Flex } from "@chakra-ui/core";
 
 
 
@@ -13,34 +13,32 @@ function MovieCard(props) {
       />
 
       <Box p="6">
-        <Box d="flex" alignItems="baseline" >
-          <Badge rounded="full" px="2" variantColor="teal">
+        <Flex d="flex" alignItems="baseline" justify="center">
+          <Badge justify="center" rounded="full" px="2" variantColor="teal">
             Rating:{props.movies.vote_average}
           </Badge>
           
-        </Box>
+        </Flex>
 
         <Box
           mt="1"
           color="white"
           fontWeight="semibold"
-          as="h4"
+          as="h5"
           lineHeight="tight"
           isTruncated
         >
           {props.movies.title}
         </Box>
 
-        <Box>
-          {props.movies.release_date}
-        </Box>
+        
 
-        <Box d="flex" mt="2" alignItems="center">
+        <Flex justify="center" mt="2" alignItems="center">
           
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
+          <Box  as="span" ml="2" color="gray.600" fontSize="sm">
             {props.movies.vote_count} reviews
           </Box>
-        </Box>
+        </Flex>
       </Box>
     </Box>
   );

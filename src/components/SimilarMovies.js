@@ -9,7 +9,7 @@ class SimilarMovies extends Component{
         return(
             <SimpleGrid m="10px" mt='10vh' minChildWidth="200px" justify='center' columns={[1, 2, 3]} spacing={10}>
                  
-               {this.props.similarMovies.map( (movie, i) => <Link  to={`/genre/movies/${movie.id}`}><MovieCard key={i} movies={movie}/> </Link>)}     
+               {this.props.similarMovies.map( (movie, i) => <Link  to={`/genre/movies/detail/${movie.id}`}><MovieCard key={i} movies={movie}/> </Link>)}     
                  
            </SimpleGrid>
            )

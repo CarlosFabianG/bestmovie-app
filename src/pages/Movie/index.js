@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Stack, Box, Image, Badge, Text, AspectRatioBox } from "@chakra-ui/core";
+import { Stack, Box, Image, Badge, Text, AspectRatioBox, Select } from "@chakra-ui/core";
 import SimilarMovies from '../../components/SimilarMovies';
 import axios from 'axios';
 
 
 class Movie extends Component {
 state={
+    rate: '',  
     videos: [],
     movieDetail: [],
     similarMovies: []
@@ -34,6 +35,18 @@ async getVideo(){
   const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
      this.setState({videos: data.results})
      console.log(data.results)
+}
+
+handleRateSelect(e){
+  const {value} = e.target
+  this.setState({rate: value})
+}
+
+
+async rateMovie(e){
+e.preventDefault()
+const { id } = this.props.match.params
+await axios.post(`https://api.themoviedb.org/3/movie/${id}/rating?api_key=35abd380b84407de20ef877d5353f792`, {"value": 8.5})
 }
 
     render(){
@@ -83,6 +96,18 @@ return(
         </Box>
       </Box>
     </Box>
+    <Select onChange={this.handleRateSelect} placeholder="Rate the movie"  backgroundColor="footfeet.100" w="18vw">
+  <option value="option1">1</option>
+  <option value="option2">2</option>
+  <option value="option3">3</option>
+  <option value="option3">4</option>
+  <option value="option3">5</option>
+  <option value="option3">6</option>
+  <option value="option3">7</option>
+  <option value="option3">8</option>
+  <option value="option3">9</option>
+  <option value="option3">10</option>
+</Select>
     // This video will have equal sides
 <AspectRatioBox maxW="560px" ratio={1}>
   <Box
