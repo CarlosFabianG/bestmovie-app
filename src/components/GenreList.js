@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import GenreCard from './GenreCard';
+import {Link} from 'react-router-dom';
 import {
-    SimpleGrid, Link
+    SimpleGrid
   } from '@chakra-ui/core'
 
 
