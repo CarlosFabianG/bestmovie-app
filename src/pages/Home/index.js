@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import GenreList from '../../components/GenreList';
 import SearchBar from '../../components/SearchBar';
 import { Stack } from "@chakra-ui/core";
@@ -11,7 +11,7 @@ class Home extends Component {
     }
 
 
-    async componentDidMount() {
+    componentDidMount() {
         this.getGenres()
     }
 
