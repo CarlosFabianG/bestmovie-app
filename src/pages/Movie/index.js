@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Stack, Box, Image, Badge, Text, AspectRatioBox, Select } from "@chakra-ui/core";
+import { Stack, Box, Image, Flex, Badge, Text, AspectRatioBox, Select } from "@chakra-ui/core";
 import SimilarMovies from '../../components/SimilarMovies';
+import MovieDetail from '../../components/MovieDetail';
 import axios from 'axios';
 
 
@@ -59,21 +60,16 @@ return(
     w="100vw"
     spacing={8} 
     >
-    <Box p="10px" maxW="sm" borderWidth="1px" borderColor="footfeet.100" rounded="lg" overflow="hidden">
-      <Image src={`https://image.tmdb.org/t/p/w200${this.state.movieDetail.poster_path}`} alt="movie_poster" 
+      <Flex flexDirection="column">
+      <Flex  pt="10vh" pl="10vh">
+            <Flex>
+            <Image src={`https://image.tmdb.org/t/p/w300${this.state.movieDetail.poster_path}`} alt="movie_poster" 
       objectFit="cover"
       rounded="md"
       />
-
-      <Box p="6">
-        <Box d="flex" alignItems="baseline" >
-          <Badge rounded="full" px="2" variantColor="teal">
-            Rating:{this.state.movieDetail.vote_average}
-          </Badge>
-          
-        </Box>
-
-        <Box
+            </Flex>
+            <Flex flexDirection="column" >
+            <Box
           mt="1"
           color="white"
           fontWeight="semibold"
@@ -81,22 +77,31 @@ return(
           lineHeight="tight"
           isTruncated
         >
-          {this.state.movieDetail.title}
+          Title:{this.state.movieDetail.title}
         </Box>
-
         <Box>
-          {this.state.movieDetail.release_date}
+          Released:{this.state.movieDetail.release_date}
         </Box>
-
-        <Box d="flex" mt="2" alignItems="center">
-          
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {this.state.vote_count} reviews
+        <Box>
+          Runtime:{this.state.movieDetail.runtime}
+        </Box>
+        <Box>
+          Budget:{this.state.movieDetail.budget}
+        </Box>
+        <Box>
+          Revenue:{this.state.movieDetail.revenue}
+        </Box>
+        <Box>
+          Original Language:{this.state.movieDetail.original_language}
+        </Box>
+        <Box as="span" ml="2" color="gray.600" fontSize="sm">
+            {this.state.movieDetail.vote_count} reviews
           </Box>
-        </Box>
-      </Box>
-    </Box>
-    <Select onChange={this.handleRateSelect} placeholder="Rate the movie"  backgroundColor="footfeet.100" w="18vw">
+          <Flex>
+          <Text color="white">{this.state.movieDetail.overview}</Text>
+        </Flex>
+        <Flex justify="center">
+        <Select onChange={this.handleRateSelect} placeholder="Rate the movie"  backgroundColor="footfeet.100" w="18vw" >
   <option value="option1">1</option>
   <option value="option2">2</option>
   <option value="option3">3</option>
@@ -108,6 +113,11 @@ return(
   <option value="option3">9</option>
   <option value="option3">10</option>
 </Select>
+     </Flex>
+            </Flex>
+        </Flex>
+    
+</Flex>
     // This video will have equal sides
 <AspectRatioBox maxW="560px" ratio={1}>
   <Box

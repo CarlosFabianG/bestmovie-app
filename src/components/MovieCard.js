@@ -30,9 +30,6 @@ function MovieCard(props) {
         >
           {props.movies.title}
         </Box>
-
-        
-
         <Flex justify="center" mt="2" alignItems="center">
           
           <Box  as="span" ml="2" color="gray.600" fontSize="sm">
