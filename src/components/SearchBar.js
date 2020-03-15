@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Stack, Input, Flex, IconButton } from "@chakra-ui/core";
+import { Input, Flex, IconButton } from "@chakra-ui/core";
 
 class SearchBar extends Component {
 

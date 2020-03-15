@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import GenreList from '../../components/GenreList';
 import SearchBar from '../../components/SearchBar';
-import { Stack, Input, Flex, IconButton } from "@chakra-ui/core";
+import { Stack } from "@chakra-ui/core";
 
-function Home() {
+class Home extends Component {
+    state = {
+        genres: []
+    }
+
+    render(){
     return (
         <Stack
             mt="10vh"
@@ -16,10 +21,11 @@ function Home() {
         >
         <Stack>
       < SearchBar />      
-      < GenreList />
+      < GenreList genres={this.genres}/>
       </Stack>
         </Stack>
     )
+    }
 }
 
 
