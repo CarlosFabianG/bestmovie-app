@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Stack, Box, Image, Flex, Badge, Text, AspectRatioBox, Select } from "@chakra-ui/core";
 import SimilarMovies from '../../components/SimilarMovies';
-import MovieDetail from '../../components/MovieDetail';
+//import MovieDetail from '../../components/MovieDetail';
 import axios from 'axios';
 
 
@@ -61,44 +61,45 @@ return(
     spacing={8} 
     >
       <Flex flexDirection="column">
-      <Flex  pt="10vh" pl="10vh">
+      <Flex justify="center"  pt="10vh" >
             <Flex>
-            <Image src={`https://image.tmdb.org/t/p/w300${this.state.movieDetail.poster_path}`} alt="movie_poster" 
+            <Image border="1px" borderColor="buff.100" src={`https://image.tmdb.org/t/p/w300${this.state.movieDetail.poster_path}`} alt="movie_poster" 
       objectFit="cover"
       rounded="md"
       />
             </Flex>
-            <Flex flexDirection="column" >
+            <Flex flexDirection="column" pl="20px">
             <Box
           mt="1"
-          color="white"
-          fontWeight="semibold"
+          color="buff.100"
+          fontWeight="bold"
           as="h4"
           lineHeight="tight"
           isTruncated
         >
-          Title:{this.state.movieDetail.title}
+          Title: {this.state.movieDetail.title}
         </Box>
-        <Box>
-          Released:{this.state.movieDetail.release_date}
+        <Box color="gray.100">
+         <Box as="span" fontWeight="bold"> Released:</Box> {this.state.movieDetail.release_date}
         </Box>
-        <Box>
-          Runtime:{this.state.movieDetail.runtime}
+        <Box color="gray.100">
+        <Box as="span" fontWeight="bold">Runtime:</Box> {this.state.movieDetail.runtime}min
         </Box>
-        <Box>
-          Budget:{this.state.movieDetail.budget}
+        <Box color="gray.100">
+        <Box as="span" fontWeight="bold">Budget:</Box> {this.state.movieDetail.budget}
         </Box>
-        <Box>
-          Revenue:{this.state.movieDetail.revenue}
+        <Box color="gray.100">
+        <Box as="span" fontWeight="bold">Revenue:</Box> {this.state.movieDetail.revenue}
         </Box>
-        <Box>
-          Original Language:{this.state.movieDetail.original_language}
+        <Box color="gray.100">
+        <Box as="span" fontWeight="bold">Original Language:</Box>{this.state.movieDetail.original_language}
         </Box>
         <Box as="span" ml="2" color="gray.600" fontSize="sm">
             {this.state.movieDetail.vote_count} reviews
           </Box>
-          <Flex>
-          <Text color="white">{this.state.movieDetail.overview}</Text>
+          <Flex flexDirection="column">
+            <Flex color="buff.100" justify="center">Overview</Flex>
+          <Flex  justify="center" w="30vw" color="white">{this.state.movieDetail.overview}</Flex>
         </Flex>
         <Flex justify="center">
         <Select onChange={this.handleRateSelect} placeholder="Rate the movie"  backgroundColor="footfeet.100" w="18vw" >
