@@ -11,18 +11,18 @@ function NavBar(){
         pos="fixed"
             top={0}
             zIndex="99"
-            backgroundColor="white"
+            backgroundColor="yankeesblue.100"
             w="100vw"
             h="10vh"
             p={0}
             align="center"
             justify="space-between"
-            border="1px"
+            borderBottom="1px"
             borderRadius="md" 
-            borderColor="gray.100"
+            borderColor="footfeet.100"
         >
         
-        <Text fontSize="xl" w={"12vw", "5vw", "8vw"} ml="1vw" fontWeight="bolder">
+        <Text color="buff.100" fontSize="xl" w={"12vw", "5vw", "8vw"} ml="1vw" fontWeight="bolder">
               Best Movie
             </Text>
         </Flex>
