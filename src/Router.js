@@ -13,8 +13,8 @@ function Router() {
         <NavBar />  
          <Switch>
             <Route exact path='/' component={Home}/>
-            <Route exact path='/genre/movies' component={Genre}/>
-            <Route exact path='/genre/movies/:id' component={Movie}/>
+            <Route exact path='/genre/movies/:genre_id' component={Genre}/>
+            <Route exact path='/genre/movies/detail/:id' component={Movie}/>
         </Switch>
         < Footer /> 
         </BrowserRouter>

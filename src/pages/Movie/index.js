@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Stack, Box, Image, Badge } from "@chakra-ui/core";
+import { Stack, Box, Image, Badge, Text, AspectRatioBox } from "@chakra-ui/core";
 import SimilarMovies from '../../components/SimilarMovies';
 import axios from 'axios';
 
 
 class Movie extends Component {
 state={
+    videos: [],
     movieDetail: [],
     similarMovies: []
 }
@@ -13,6 +14,7 @@ state={
 componentDidMount(){
     this.getDetailMovie()
     this.getSimilarMovies()
+    this.getVideo()
     }
 
 async getDetailMovie(){
@@ -25,6 +27,13 @@ async getSimilarMovies(){
   const { id } = this.props.match.params
   const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=35abd380b84407de20ef877d5353f792&language=en-US&page=1`)
      this.setState({similarMovies: data.results})
+}
+
+async getVideo(){
+  const { id } = this.props.match.params
+  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
+     this.setState({videos: data.results})
+     console.log(data.results)
 }
 
     render(){
@@ -74,6 +83,21 @@ return(
         </Box>
       </Box>
     </Box>
+    // This video will have equal sides
+<AspectRatioBox maxW="560px" ratio={1}>
+  <Box
+    as="iframe"
+    id= {this.state.videos.id}
+    key = {this.state.videos.key}
+    site = {this.state.videos.site}
+    size =  {this.state.videos.size}
+    type = {this.state.videos.type}
+    name={this.state.name}
+    
+    allowFullScreen
+  />
+</AspectRatioBox>
+    <Text color="white">You also may be interested in...</Text>
     < SimilarMovies similarMovies={this.state.similarMovies}/>
     </Stack>
 )
