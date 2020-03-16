@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
-  Flex,
-  Text
+  Flex, Text
 } from '@chakra-ui/core';
 
 
@@ -22,9 +22,15 @@ function NavBar(){
             borderColor="footfeet.100"
         >
         
-        <Text color="buff.100" fontSize="xl" w={"12vw", "5vw", "8vw"} ml="1vw" fontWeight="bolder">
-              Best Movie
-            </Text>
+        <Link to={'/'}>
+             <Text
+              color="buff.100" 
+              fontSize="xl" 
+              w={"12vw", "5vw", "8vw"} 
+              ml="1vw" 
+              fontWeight="bolder"
+             >Best Movie</Text> 
+            </Link>
         </Flex>
     )
 }

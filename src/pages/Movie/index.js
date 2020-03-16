@@ -80,7 +80,7 @@ return(
           Title: {this.state.movieDetail.title}
         </Box>
         <Box color="gray.100">
-         <Box as="span" fontWeight="bold"> Released:</Box> {this.state.movieDetail.release_date}
+         <Box as="span" fontWeight="bold">Released:</Box> {this.state.movieDetail.release_date}
         </Box>
         <Box color="gray.100">
         <Box as="span" fontWeight="bold">Runtime:</Box> {this.state.movieDetail.runtime}min
@@ -102,7 +102,7 @@ return(
           <Flex  justify="center" w="30vw" color="white">{this.state.movieDetail.overview}</Flex>
         </Flex>
         <Flex justify="center">
-        <Select onChange={this.handleRateSelect} placeholder="Rate the movie"  backgroundColor="footfeet.100" w="18vw" >
+        <Select onChange={this.handleRateSelect} placeholder="Rate the movie"  backgroundColor="footfeet.100" w="18vw" color="white">
   <option value="option1">1</option>
   <option value="option2">2</option>
   <option value="option3">3</option>

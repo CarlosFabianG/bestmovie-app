@@ -32,8 +32,8 @@ function MovieCard(props) {
         </Box>
         <Flex justify="center" mt="2" alignItems="center">
           
-          <Box  as="span" ml="2" color="gray.600" fontSize="sm">
-            {props.movies.vote_count} reviews
+          <Box  isTruncated as="span" ml="2" color="gray.600" fontSize="sm">
+            {props.movies.overview}min
           </Box>
         </Flex>
       </Box>
