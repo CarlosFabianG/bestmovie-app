@@ -4,6 +4,7 @@ import GenreList from '../../components/GenreList';
 import SearchBar from '../../components/SearchBar';
 import { Stack } from "@chakra-ui/core";
 import axios from 'axios';
+const api_key = process.env.API_KEY;
 
 class Home extends Component {
     state = {

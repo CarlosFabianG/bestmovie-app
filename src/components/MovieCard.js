@@ -6,7 +6,7 @@ import { Box, Image, Badge, Flex } from "@chakra-ui/core";
 function MovieCard(props) {
  
   return (
-    <Box p="10px" maxW="sm" borderWidth="1px" borderColor="footfeet.100" rounded="lg" overflow="hidden">
+    <Box p="10px" objectFit="cover" maxW="sm" borderWidth="1px" borderColor="footfeet.100" rounded="lg" overflow="hidden">
       <Image src={`https://image.tmdb.org/t/p/w200${props.movies.poster_path}`} alt="movie_poster" 
       objectFit="cover"
       rounded="md"

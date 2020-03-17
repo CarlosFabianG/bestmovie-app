@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  useDisclosure,
     Modal,
     ModalOverlay,
     ModalContent,
@@ -7,14 +8,15 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
+    Button
   } from "@chakra-ui/core";
 
 
-  function ReviewModal() {
+  function ReviewModal(props) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     return (
       <>
-        <Button onClick={onOpen}>Review</Button>
+        <Button m="15px" onClick={onOpen} w="18vw">Reviews</Button>
   
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
@@ -22,7 +24,7 @@ import {
             <ModalHeader>Modal Title</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <Lorem count={2} />
+             
             </ModalBody>
   
             <ModalFooter>

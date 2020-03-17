@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Stack, Box, Image, Flex, Badge, Text, AspectRatioBox, Select } from "@chakra-ui/core";
 import SimilarMovies from '../../components/SimilarMovies';
+import ReviewModal from '../../components/ReviewModal';
 //import MovieDetail from '../../components/MovieDetail';
 import axios from 'axios';
-
+const api_key = process.env.API_KEY;
 
 class Movie extends Component {
 state={
     rate: '',  
     videos: [],
     movieDetail: [],
-    similarMovies: []
+    similarMovies: [],
+    reviews:[]
 }
 
 componentDidMount(){
@@ -38,6 +40,12 @@ async getVideo(){
      console.log(data.results)
 }
 
+async getReviews(){
+  const { id } = this.props.match.params
+  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=35abd380b84407de20ef877d5353f792&language=en-US&page=1`)
+     this.setState({reviews: data.results})
+}
+
 handleRateSelect(e){
   const {value} = e.target
   this.setState({rate: value})
@@ -47,7 +55,7 @@ handleRateSelect(e){
 async rateMovie(e){
 e.preventDefault()
 const { id } = this.props.match.params
-await axios.post(`https://api.themoviedb.org/3/movie/${id}/rating?api_key=35abd380b84407de20ef877d5353f792`, {"value": 8.5})
+await axios.post(`https://api.themoviedb.org/3/movie/${id}/rating?api_key=35abd380b84407de20ef877d5353f792`, {"value": 8})
 }
 
     render(){
@@ -114,6 +122,9 @@ return(
   <option value="option3">9</option>
   <option value="option3">10</option>
 </Select>
+     </Flex>
+     <Flex justify="center">
+     < ReviewModal />
      </Flex>
             </Flex>
         </Flex>
