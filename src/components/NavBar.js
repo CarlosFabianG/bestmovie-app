@@ -11,7 +11,7 @@ function NavBar(){
         pos="fixed"
             top={0}
             zIndex="99"
-            backgroundColor="yankeesblue.100"
+            backgroundColor="indigo.100"
             w="100vw"
             h="10vh"
             p={0}

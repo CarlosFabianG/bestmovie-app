@@ -10,9 +10,9 @@ function Footer() {
         p="8vh"
         bottom={0}
         zIndex="99"
-        backgroundColor="yankeesblue.100"
-        border="1px"
-        borderColor="buff.100"
+        backgroundColor="indigo.100"
+        borderTop="1px"
+        borderColor="footfeet.100"
         w="100vw"
         h="10vh"
         align="center"

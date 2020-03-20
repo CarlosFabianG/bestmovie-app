@@ -8,7 +8,7 @@ const api_key = process.env.API_KEY;
 
 class Movie extends Component {
 state={
-    rate: '',  
+    rate: Number,  
     videos: [],
     movieDetail: [],
     similarMovies: [],
@@ -24,13 +24,25 @@ componentDidMount(){
 async getDetailMovie(){
      const { id } = this.props.match.params
      const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
-     this.setState({movieDetail:{...data}})
+     this.setState({movieDetail:data})
 }    
 
 async getSimilarMovies(){
   const { id } = this.props.match.params
   const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=35abd380b84407de20ef877d5353f792&language=en-US&page=1`)
      this.setState({similarMovies: data.results})
+}
+
+async updateDetailMovie(){
+  const { id } = this.props.match.params
+  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
+  this.setState({movieDetail:data})
+}
+
+componentDidUpdate(prevState){ 
+  this.getSimilarMovies()
+  //if(this.state.movieDetail !== this.prevState.movieDetail) this.updateDetailMovie()
+  
 }
 
 async getVideo(){
@@ -71,7 +83,7 @@ return(
       <Flex flexDirection="column">
       <Flex justify="center"  pt="10vh" >
             <Flex>
-            <Image border="1px" borderColor="buff.100" src={`https://image.tmdb.org/t/p/w300${this.state.movieDetail.poster_path}`} alt="movie_poster" 
+            <Image border="1px" borderColor="footfeet.100" src={`https://image.tmdb.org/t/p/w300${this.state.movieDetail.poster_path}`} alt="movie_poster" 
       objectFit="cover"
       rounded="md"
       />
