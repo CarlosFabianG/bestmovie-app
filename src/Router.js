@@ -5,6 +5,7 @@ import Genre from './pages/Genre';
 import Movie from './pages/Movie';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
             <Route exact path='/' component={Home}/>
             <Route exact path='/genre/movies/:genre_id' component={Genre}/>
             <Route exact path='/genre/movies/detail/:id' component={Movie}/>
+            <Route component={NotFound} />
         </Switch>
         < Footer /> 
         </BrowserRouter>
