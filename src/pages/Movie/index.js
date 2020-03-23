@@ -58,15 +58,15 @@ async getReviews(){
      this.setState({reviews: data.results})
 }
 
-handleRateSelect(e){
-  const {value} = e.target
-  this.setState({rate: value})
+handleRateSelect(){
+ 
+ this.rateMovie()
 }
 
 
 async rateMovie(e){
 e.preventDefault()
-const { id } = this.props.match.params
+const { id } = this.state.movieDetail.id
 await axios.post(`https://api.themoviedb.org/3/movie/${id}/rating?api_key=35abd380b84407de20ef877d5353f792`, {"value": 8})
 }
 
