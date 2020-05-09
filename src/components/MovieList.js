@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import MovieCard from './MovieCard';
-import { SimpleGrid } from "@chakra-ui/core";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import MovieCard from './MovieCard'
+import { SimpleGrid } from "@chakra-ui/core"
 
 
-class MovieList extends Component {
+function MovieList(props){
     
-    render(){
         return(
          <SimpleGrid m="10px" 
                      mt='10vh' 
@@ -16,11 +15,11 @@ class MovieList extends Component {
                      columns={[1, 2, 3]} 
                      spacing={10}>
               
-            {this.props.moviesByGenre.map( movie => <Link  to={`/genre/movies/detail/${movie.id}`}><MovieCard key={movie.id} movies={movie}/> </Link>)}     
-              
+            {props.moviesByGenre.map( movie => <Link  key={movie.id} to={`/genre/movies/detail/${movie.id}` }>
+                                                    <MovieCard  movies={movie}/> 
+                                                    </Link>)}     
         </SimpleGrid>
         )
-    }
-};
+}
 
-export default MovieList;
+export default MovieList
