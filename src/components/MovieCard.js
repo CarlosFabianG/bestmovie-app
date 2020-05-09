@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Box, Image, Badge, Flex } from "@chakra-ui/core";
+import React from 'react'
+import { Box, Image, Badge, Flex } from "@chakra-ui/core"
 
 
 
@@ -41,4 +41,4 @@ function MovieCard(props) {
   );
 };
 
-export default MovieCard;
+export default MovieCard
