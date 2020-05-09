@@ -4,11 +4,12 @@ import SimilarMovies from '../../components/SimilarMovies';
 import ReviewModal from '../../components/ReviewModal';
 //import MovieDetail from '../../components/MovieDetail';
 import axios from 'axios';
-const api_key = process.env.API_KEY;
+const URL = 'https://api.themoviedb.org/3/movie/'
+const api_key = process.env.REACT_APP_API_KEY;
 
 class Movie extends Component {
 state={
-    rate: Number,  
+    rate: null,  
     videos: [],
     movieDetail: [],
     similarMovies: [],
@@ -23,19 +24,19 @@ componentDidMount(){
 
 async getDetailMovie(){
      const { id } = this.props.match.params
-     const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
+     const {data} = await axios.get(`${URL}${id}?api_key=${api_key}`)
      this.setState({movieDetail:data})
 }    
 
 async getSimilarMovies(){
   const { id } = this.props.match.params
-  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=35abd380b84407de20ef877d5353f792&language=en-US&page=1`)
+  const {data} = await axios.get(`${URL}${id}/similar?api_key=${api_key}&language=en-US&page=1`)
      this.setState({similarMovies: data.results})
 }
 
 async updateDetailMovie(){
   const { id } = this.props.match.params
-  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
+  const {data} = await axios.get(`${URL}${id}?api_key=${api_key}&language=en-US`)
   this.setState({movieDetail:data})
 }
 
@@ -47,14 +48,14 @@ componentDidUpdate(prevState){
 
 async getVideo(){
   const { id } = this.props.match.params
-  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=35abd380b84407de20ef877d5353f792&language=en-US`)
+  const {data} = await axios.get(`${URL}${id}/videos?api_key=${api_key}&language=en-US`)
      this.setState({videos: data.results})
      console.log(data.results)
 }
 
 async getReviews(){
   const { id } = this.props.match.params
-  const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=35abd380b84407de20ef877d5353f792&language=en-US&page=1`)
+  const {data} = await axios.get(`${URL}${id}/reviews?api_key=${api_key}&language=en-US&page=1`)
      this.setState({reviews: data.results})
 }
 
@@ -67,7 +68,7 @@ handleRateSelect(){
 async rateMovie(e){
 e.preventDefault()
 const { id } = this.state.movieDetail.id
-await axios.post(`https://api.themoviedb.org/3/movie/${id}/rating?api_key=35abd380b84407de20ef877d5353f792`, {"value": 8})
+await axios.post(`${URL}${id}/rating?api_key=${api_key}`, {"value": 8})
 }
 
     render(){

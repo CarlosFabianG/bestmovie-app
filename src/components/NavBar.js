@@ -26,7 +26,7 @@ function NavBar(){
              <Text
               color="buff.100" 
               fontSize="xl" 
-              w={"12vw", "5vw", "8vw"} 
+              w={"12vw","5vw","8vw"} 
               ml="1vw" 
               fontWeight="bolder"
              >Best Movie</Text> 
