@@ -60,7 +60,7 @@ return(
 >
 <Stack>
 < SearchBar />      
-< MovieList moviesByGenre={this.state.moviesByGenre}/>
+< MovieList moviesList={this.state.moviesByGenre}/>
 </Stack>
 </Stack>
 )

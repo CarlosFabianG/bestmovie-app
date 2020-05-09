@@ -15,7 +15,7 @@ function MovieList(props){
                      columns={[1, 2, 3]} 
                      spacing={10}>
               
-            {props.moviesByGenre.map( movie => <Link  key={movie.id} to={`/genre/movies/detail/${movie.id}` }>
+            {props.moviesList.map( movie => <Link  key={movie.id} to={`/genre/movies/detail/${movie.id}` }>
                                                     <MovieCard  movies={movie}/> 
                                                     </Link>)}     
         </SimpleGrid>

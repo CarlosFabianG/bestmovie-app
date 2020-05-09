@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Stack, Box, Image, Flex, Badge, Text, AspectRatioBox, Select } from "@chakra-ui/core";
-import SimilarMovies from '../../components/SimilarMovies';
+import MovieList from '../../components/MovieList';
 import ReviewModal from '../../components/ReviewModal';
 //import MovieDetail from '../../components/MovieDetail';
 import axios from 'axios';
@@ -158,7 +158,7 @@ return(
   />
 </AspectRatioBox>
     <Text color="white">You also may be interested in...</Text>
-    < SimilarMovies similarMovies={this.state.similarMovies}/>
+    < MovieList moviesList={this.state.similarMovies}/>
     </Stack>
 )
     }
