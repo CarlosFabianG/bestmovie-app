@@ -17,11 +17,16 @@ this.getMoviesByGenre()
 }
 
 async getMoviesByGenre(){
+    try{
     this.setState({loading:true})
     const { genre_id } = this.props.match.params
     const {data} = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=35abd380b84407de20ef877d5353f792&with_genres=${genre_id}`)
     this.setState({loading: false, moviesByGenre: data.results})
+    }catch(error){
+        console.log(error)
+    } 
 }
+
     render(){
         if(this.state.loading){
             return (
