@@ -45,7 +45,6 @@ async updateDetailMovie(){
 componentDidUpdate(prevState){ 
   this.getSimilarMovies()
   //if(this.state.movieDetail !== this.prevState.movieDetail) this.updateDetailMovie()
-  
 }
 
 async getVideo(){

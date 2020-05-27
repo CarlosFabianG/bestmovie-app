@@ -11,6 +11,8 @@ function GenreList(props){
     return(
         <SimpleGrid m="10px" 
                     mt='10vh' 
+                    mb="10vh"
+                    p="15px"
                     minChildWidth="300px" 
                     justify='center' 
                     columns={[1, 2, 3]} 

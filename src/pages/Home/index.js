@@ -39,7 +39,7 @@ class Home extends Component {
         >
         <Stack>
       < SearchBar /> 
-      <Text color="white" mt="10vh" >Selecciona un género</Text>     
+      <Text color="white" mt="10vh" >Select a genre</Text>     
       < GenreList genres={this.state.genres}/>
       </Stack>
         </Stack>

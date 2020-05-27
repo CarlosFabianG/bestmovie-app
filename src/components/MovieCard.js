@@ -1,12 +1,19 @@
 import React from 'react'
-import { Box, Image, Badge, Flex } from "@chakra-ui/core"
+import { PseudoBox, Box, Image, Badge, Flex } from "@chakra-ui/core"
 
 
 
 function MovieCard(props) {
  
   return (
-    <Box p="10px" objectFit="cover" maxW="sm" borderWidth="1px" borderColor="footfeet.100" rounded="lg" overflow="hidden">
+    <PseudoBox  p="10px" 
+          objectFit="cover" 
+          maxW="sm" borderWidth="1px" 
+          borderColor="footfeet.100" 
+          rounded="lg" 
+          overflow="hidden"
+          _hover={{transform:"scale(1.1)"}}>
+            
       <Image src={`https://image.tmdb.org/t/p/w200${props.movies.poster_path}`} alt="movie_poster" 
       objectFit="cover"
       rounded="md"
@@ -37,7 +44,7 @@ function MovieCard(props) {
           </Box>
         </Flex>
       </Box>
-    </Box>
+    </PseudoBox>
   );
 };
 

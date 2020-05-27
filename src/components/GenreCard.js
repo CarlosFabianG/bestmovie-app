@@ -1,15 +1,23 @@
 import React from 'react';
-import { Box } from "@chakra-ui/core";
+import { PseudoBox } from "@chakra-ui/core";
 
 
 
 function GenreCard(props) {
 
-
   return (
-    <Box bg="indigo.100" border="1px" borderColor="footfeet.100" w="100%" p={4} color="buff.100">
-  {props.genres.name}
-</Box>
+    <PseudoBox 
+        bg="indigo.100" 
+        border="1px" 
+        transformr="scale(1.5)"
+        borderColor="footfeet.100" 
+        w="100%" p={4} 
+        color="buff.100"
+        _hover={{transform:"scale(1.1)"}}>
+
+              {props.genres.name}
+
+    </PseudoBox>
   );
 }
 
