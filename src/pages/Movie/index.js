@@ -4,7 +4,7 @@ import MovieList from '../../components/MovieList';
 import ReviewModal from '../../components/ReviewModal';
 import axios from 'axios';
 const URL = 'https://api.themoviedb.org/3/movie/'
-const api_key = process.env.REACT_APP_API_KEY;
+const api_key = '35abd380b84407de20ef877d5353f792'//process.env.REACT_APP_API_KEY;
 const guest_id = process.env.REACT_APP_GUEST_SESSION_ID_KEY;
 
 class Movie extends Component {
