@@ -3,7 +3,7 @@ import MovieList from '../../components/MovieList';
 import SearchBar from '../../components/SearchBar';
 import { Stack, Spinner, Flex } from "@chakra-ui/core";
 import axios from 'axios';
-const api_key = '35abd380b84407de20ef877d5353f792';
+const api_key = process.env.REACT_APP_API_KEY;
 
 
 class Genre extends Component {
