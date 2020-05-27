@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-//import {Link} from 'react-router-dom';
 import GenreList from '../../components/GenreList';
 import SearchBar from '../../components/SearchBar';
-import { Stack } from "@chakra-ui/core";
+import { Stack, Text } from "@chakra-ui/core";
 import axios from 'axios';
 const URL = 'https://api.themoviedb.org/3/genre/movie/list';
 const api_key = process.env.REACT_APP_API_KEY;
@@ -39,7 +38,8 @@ class Home extends Component {
             spacing={8} 
         >
         <Stack>
-      < SearchBar />      
+      < SearchBar /> 
+      <Text color="white" mt="10vh" >Selecciona un género</Text>     
       < GenreList genres={this.state.genres}/>
       </Stack>
         </Stack>

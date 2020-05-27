@@ -10,7 +10,9 @@ const api_key = process.env.REACT_APP_API_KEY;
 class Movie extends Component {
 state={
     rate: null,  
-    videos: [],
+    videos: [
+      {}
+    ],
     movieDetail: [],
     similarMovies: [],
     reviews:[]
@@ -72,6 +74,7 @@ await axios.post(`${URL}${id}/rating?api_key=${api_key}`, {"value": 8})
 }
 
     render(){
+      const video = this.state.videos[0].key
 return(
     <Stack
     mt="10vh"
@@ -144,19 +147,20 @@ return(
     
 </Flex>
     // This video will have equal sides
-<AspectRatioBox maxW="560px" ratio={1}>
+   
+<AspectRatioBox maxW="560px" mt="10vh" mb="20vh" ml="25vw" ratio={1} >
   <Box
     as="iframe"
     id= {this.state.videos.id}
-    key = {this.state.videos.key}
-    site = {this.state.videos.site}
     size =  {this.state.videos.size}
     type = {this.state.videos.type}
     name={this.state.name}
+    src={`https://www.youtube.com/embed/${video}`}
     
     allowFullScreen
   />
 </AspectRatioBox>
+
     <Text color="white">You also may be interested in...</Text>
     < MovieList moviesList={this.state.similarMovies}/>
     </Stack>
