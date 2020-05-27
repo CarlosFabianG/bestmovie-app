@@ -28,6 +28,7 @@ async getDetailMovie(){
      const { id } = this.props.match.params
      const {data} = await axios.get(`${URL}${id}?api_key=${api_key}`)
      this.setState({movieDetail:data})
+     console.log(this.state.movieDetail.id)
 }    
 
 async getSimilarMovies(){
@@ -39,12 +40,19 @@ async getSimilarMovies(){
 async updateDetailMovie(){
   const { id } = this.props.match.params
   const {data} = await axios.get(`${URL}${id}?api_key=${api_key}&language=en-US`)
-  this.setState({movieDetail:data})
+    this.setState({movieDetail:data})  
 }
 
 componentDidUpdate(prevState){ 
-  this.getSimilarMovies()
-  //if(this.state.movieDetail !== this.prevState.movieDetail) this.updateDetailMovie()
+  const { id } = this.props.match.params
+  const updatedMovieId = prevState.match.params.id
+  console.log(id)
+  console.log(updatedMovieId)
+  if( id !== updatedMovieId) {
+     this.getDetailMovie()
+     this.getVideo()
+     this.getSimilarMovies()
+   }
 }
 
 async getVideo(){
