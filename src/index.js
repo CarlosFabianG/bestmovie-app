@@ -5,7 +5,6 @@ import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import theme from './theme';
 import Router from './Router';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

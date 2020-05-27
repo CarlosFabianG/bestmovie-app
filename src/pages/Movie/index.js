@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Stack, Box, Image, Flex, Badge, Text, AspectRatioBox, Select } from "@chakra-ui/core";
+import { Stack, Box, Image, Flex, Text, AspectRatioBox, Select } from "@chakra-ui/core";
 import MovieList from '../../components/MovieList';
 import ReviewModal from '../../components/ReviewModal';
-//import MovieDetail from '../../components/MovieDetail';
 import axios from 'axios';
 const URL = 'https://api.themoviedb.org/3/movie/'
 const api_key = process.env.REACT_APP_API_KEY;
+const guest_id = process.env.REACT_APP_GUEST_SESSION_ID_KEY;
 
 class Movie extends Component {
 state={
-    rate: null,  
+    rate: 0,  
     videos: [
       {}
     ],
@@ -60,16 +60,17 @@ async getReviews(){
      this.setState({reviews: data.results})
 }
 
-handleRateSelect(){
- 
- this.rateMovie()
+handleRateSelect = (e) => {
+  const value = e.target.value
+  console.log(value)
+ this.setState({rate: value})
+ console.log(this.state.rate)
 }
-
 
 async rateMovie(e){
 e.preventDefault()
 const { id } = this.state.movieDetail.id
-await axios.post(`${URL}${id}/rating?api_key=${api_key}`, {"value": 8})
+await axios.post(`${URL}${id}/rating?api_key=${api_key}&guest_session_id=${guest_id}`, {"value": 8})
 }
 
     render(){
@@ -86,9 +87,12 @@ return(
       <Flex flexDirection="column">
       <Flex justify="center"  pt="10vh" >
             <Flex>
-            <Image border="1px" borderColor="footfeet.100" src={`https://image.tmdb.org/t/p/w300${this.state.movieDetail.poster_path}`} alt="movie_poster" 
-      objectFit="cover"
-      rounded="md"
+            <Image border="1px" 
+                   borderColor="footfeet.100" 
+                   src={`https://image.tmdb.org/t/p/w300${this.state.movieDetail.poster_path}`} 
+                   alt="movie_poster" 
+                   objectFit="cover"
+                   rounded="md"
       />
             </Flex>
             <Flex flexDirection="column" pl="20px">
@@ -126,16 +130,16 @@ return(
         </Flex>
         <Flex justify="center">
         <Select onChange={this.handleRateSelect} placeholder="Rate the movie"  backgroundColor="footfeet.100" w="18vw" color="white">
-  <option value="option1">1</option>
-  <option value="option2">2</option>
-  <option value="option3">3</option>
-  <option value="option3">4</option>
-  <option value="option3">5</option>
-  <option value="option3">6</option>
-  <option value="option3">7</option>
-  <option value="option3">8</option>
-  <option value="option3">9</option>
-  <option value="option3">10</option>
+  <option value={1}>1</option>
+  <option value={2}>2</option>
+  <option value={3}>3</option>
+  <option value={4}>4</option>
+  <option value={5}>5</option>
+  <option value={6}>6</option>
+  <option value={7}>7</option>
+  <option value={8}>8</option>
+  <option value={9}>9</option>
+  <option value={10}>10</option>
 </Select>
      </Flex>
      <Flex justify="center">
